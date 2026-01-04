@@ -15,6 +15,10 @@ Este proyecto es una aplicación web interactiva desarrollada con **JavaScript N
 
 Como el proyecto utiliza **Módulos de JavaScript**, requiere ser ejecutado a través de un servidor local para evitar errores de CORS o de carga de módulos.
 
-1. Ejecucion del Proyecto
+1. **Instalar un servidor local sencillo** (opcional, si no tienes uno):
+   ```bash
+   npm install -g http-server
+   
+2. Ejecucion del Proyecto
  *  ** npx serve 
- *  ** npx http-server   
+ *  ** npx http-server    
