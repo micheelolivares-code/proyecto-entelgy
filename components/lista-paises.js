@@ -3,7 +3,7 @@ class ListaPaises extends HTMLElement {
   async connectedCallback() {
     console.log('lista-paises conectado');
     const paises = await obtenerPaises();
-console.log(paises);
+    console.log(paises);
     this.innerHTML = `<div class="grid"></div>`;
     console.log(this.innerHTML);
     const grid = this.querySelector('.grid');
@@ -18,7 +18,9 @@ console.log(paises);
      tarjeta.dataset.languages = pais.languages;
      tarjeta.dataset.map = pais.map;
      tarjeta.dataset.currency = pais.currency;
-
+     tarjeta.dataset.area = pais.area; 
+     tarjeta.dataset.dominio = pais.dominio;
+     tarjeta.dataset.independiente = pais.independiente;
      grid.appendChild(tarjeta);
    });
   }
