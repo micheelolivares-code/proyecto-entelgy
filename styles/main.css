@@ -1,3 +1,4 @@
+/* --- CONFIGURACIÓN BASE --- */
 body {
   margin: 0;
   padding: 0;
@@ -14,58 +15,80 @@ body {
   width: 100%;
 }
 
-
-header {
-  padding: 50px 20px;
+/* --- HEADER Y FOOTER SIMÉTRICOS (ACTUALIZADO) --- */
+header, footer {
+  background: linear-gradient(to right, #243b55, #141e30, #3b82f6);
+  margin: 20px auto;
+  padding: 35px 20px;
+  max-width: 1100px; /* Ancho unificado para simetría */
+  border-radius: 15px; 
   text-align: center;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+}
+
+/* Ajustes específicos para el Header */
+header span:first-child {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.header-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 15px;
 }
 
 header .logo-container {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  color: white;
-  animation: pulse 2s infinite; 
+  font-size: 2.5rem;
+  background: none;
+  box-shadow: none;
+  width: auto;
+  height: auto;
+  animation: none; 
 }
 
 header h1 {
   font-size: 2.8rem;
-  font-weight: 800;
+  font-weight: 700;
   margin: 0;
-  color: #1a202c;
-  letter-spacing: -0.03em;
-  position: relative;
-  padding-bottom: 15px;
+  color: white;
+  letter-spacing: -1px;
 }
 
 header h1::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 4px;
-  background: #3498db;
-  border-radius: 2px;
+  display: none;
 }
 
+header p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.85;
+  margin: 5px 0 0 0;
+}
+
+/* Ajuste específico para el Footer */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
 #Content {
   display: flex;
   flex: 1;
   gap: 2rem;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1100px; /* Alineado con header y footer */
   margin: 0 auto;
 }
 
@@ -79,7 +102,7 @@ header h1::after {
   gap: 1.5rem;
 }
 
-
+/* --- SIDEBAR FAVORITOS --- */
 #SideContent {
   flex: 1;
   min-width: 260px;
@@ -92,7 +115,6 @@ header h1::after {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
   height: fit-content;
 }
-
 
 .fav-item {
   display: flex;
@@ -126,7 +148,7 @@ header h1::after {
   color: #334155;
 }
 
-
+/* --- TARJETAS --- */
 .card {
   background: #ffffff;
   border-radius: 12px;
@@ -150,7 +172,7 @@ header h1::after {
   margin-bottom: 0.5rem;
 }
 
-
+/* --- MODAL --- */
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -204,7 +226,6 @@ header h1::after {
   font-weight: 700;
 }
 
-
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -233,7 +254,6 @@ header h1::after {
   color: #1e293b;
   font-size: 0.9rem;
 }
-
 
 .map-link {
   display: block;
@@ -286,23 +306,45 @@ header h1::after {
   justify-content: center;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
+/* --- ANIMACIONES --- */
 @keyframes modalOpen {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #2c3e50;
-  color: white;
-  font-size: 0.9rem;
+.country-title:hover {
+  color: #3498db;
+}
+
+/* --- SECCIÓN NUEVA: RESPONSIVIDAD (SIN QUITAR NADA ANTERIOR) --- */
+@media (max-width: 1024px) {
+  #Content {
+    flex-direction: column; /* Favoritos baja al final */
+    align-items: center;
+    max-width: 95%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+
+  header, footer {
+    max-width: 95%; /* Simetría en pantallas medianas */
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr; /* Info del modal en vertical */
+  }
 }
 
 .country-title:hover {

@@ -17,3 +17,4 @@ export async function obtenerPaises() {
     independiente: pais.independent ? 'Sí' : 'No'
   }));
 }
+
